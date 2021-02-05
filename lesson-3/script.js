@@ -41,7 +41,7 @@ function askQuestions(numberQuestion) {
 askQuestions(4);
 
 let budgetMonth = money - (questionsAmount[0] + questionsAmount[1] + questionsAmount[2] + questionsAmount[3]);
-console.log("Бюджет на месяц: " + budgetDay);
+console.log("Бюджет на месяц: " + budgetMonth);
 
 let monthsAchieving  = Math.round(mission / budgetMonth);
 console.log('Вы достигните цель за ' + monthsAchieving + ' месяцев');
