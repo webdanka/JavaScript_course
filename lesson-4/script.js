@@ -21,7 +21,7 @@ function askQuestions(numberQuestion) {
   return questionsAmount;
 }
 
-askQuestions(4);
+askQuestions(2);
 
 /* 4 урок */
 
