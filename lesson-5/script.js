@@ -1,12 +1,26 @@
 'use strict';
 
-let money = +prompt("Ваш месячный доход?"),
+let isNumber = function(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+};
+
+let money,
   income = "Фриланс",
   addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую"),
   deposit = confirm('Есть ли у вас депозит в банке?'),
   mission = 3500000,
   period = 6,
   budgetDay = 0;
+
+let start = function() {
+  
+  do {
+    money = +prompt("Ваш месячный доход?");
+  } while (isNumber(money));
+
+};
+
+start();
 
 let questionsExpenses = [],
   questionsAmount = [];
@@ -22,8 +36,6 @@ function askQuestions(numberQuestion) {
 }
 
 askQuestions(2);
-
-/* 4 урок */
 
 function showTypeOf(data) {
   console.log(data, typeof(data));
