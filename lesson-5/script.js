@@ -25,45 +25,45 @@ start();
 let questionsExpenses = [],
   questionsAmount = [];
 
-function askQuestions(numberQuestion) {
-
-  for (var i = 0; i < numberQuestion; i++) {
-    questionsExpenses[i] = prompt("Введите обязательную статью расходов.");
-    questionsAmount[i] = +prompt("Во сколько это обойдется?");
-  }
-
-  return questionsAmount;
-}
-
-askQuestions(2);
-
 function showTypeOf(data) {
-  console.log(data, typeof(data));
+  console.log(typeof(data));
 }
 
 showTypeOf(money);
 showTypeOf(income);
 showTypeOf(deposit);
 
-function getExpensesMonth() {
-  return questionsAmount[0] + questionsAmount[1] + questionsAmount[2] + questionsAmount[3];
-}
+let getExpensesMonth = function() {
 
-console.log("Сумма расходов за месяц " + getExpensesMonth());
+  for (var i = 0; i < 2; i++) {
+    questionsExpenses[i] = prompt("Введите обязательную статью расходов.");
+    questionsAmount[i] = +prompt("Во сколько это обойдется?");
+  }  
+
+  return questionsAmount[0] + questionsAmount[1] + questionsAmount[2] + questionsAmount[3];
+};
+
+console.log("Сумма расходов за месяц " + getExpensesMonth);
 
 console.log(addExpenses.toLowerCase().split(", "));
 
 function getAccumulatedMonth() {
-  return money - getExpensesMonth();
+  return money - getExpensesMonth;
 }
 
 let accumulatedMonth = getAccumulatedMonth();
 
 function getTargetMonth() {
-  return Math.round(mission / accumulatedMonth);
+  let deadlineGoal = Math.round(mission / accumulatedMonth);
+  
+  if (deadlineGoal < 0) {
+    return "Цель не будет достигнута";
+  }
+
+  return "Цель будет достигнута через " + deadlineGoal + " месяцев";
 }
 
-console.log("Цель будет достигнута через " + getTargetMonth() + " месяцев");
+console.log(getTargetMonth());
 
 budgetDay = Math.floor(accumulatedMonth / 30);
 
@@ -82,9 +82,7 @@ function getStatusIncome() {
     return "К сожалению у вас уровень дохода ниже среднего";
   }
   
-  if (budgetDay < 0) {
-    return "Что то пошло не так";
-  }
+  return "Что то пошло не так";
 }
 
 console.log(getStatusIncome());
