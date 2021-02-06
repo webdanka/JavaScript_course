@@ -21,8 +21,7 @@ let start = function () {
 start();
 
 let questionsExpenses = [],
-  questionsAmount = [],
-  expensesMonth;
+  questionsAmount = [];
 
 let showTypeOf = function (data) {
   console.log(typeof (data));
@@ -35,8 +34,7 @@ let getExpensesMonth = function (numbersQuestions) {
     questionsAmount[i] = +prompt("Во сколько это обойдется?");
   }
 
-  expensesMonth = questionsAmount[0] + questionsAmount[1];
-  return expensesMonth;
+  return questionsAmount[0] + questionsAmount[1];
 };
 
 function getAccumulatedMonth() {
