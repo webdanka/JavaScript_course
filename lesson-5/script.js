@@ -4,24 +4,23 @@ let isNumber = function (number) {
   return !isNaN(parseFloat(number) && isFinite(number));
 };
 
-let money = 0;
-
-let start = function () {
-
-  do {
-    money = prompt("Ваш месячный доход?");
-  } while (!isNumber(money));
-
-};
-
-start();
-
-let income = "Фриланс",
+let money,
+  income = "Фриланс",
   addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую"),
   deposit = confirm('Есть ли у вас депозит в банке?'),
   mission = 3500000,
   period = 6,
-  budgetDay = 0;
+  budgetDay;
+
+let start = function () {
+  money = prompt("Ваш месячный доход?");
+
+  do {
+    money = prompt("Ваш месячный доход?");
+  } while (!isNumber(money));
+};
+
+start();
 
 let questionsExpenses = [],
   questionsAmount = [];
