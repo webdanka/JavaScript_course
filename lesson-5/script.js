@@ -4,7 +4,7 @@ let isNumber = function (number) {
   return !isNaN(parseFloat(number) && isFinite(number));
 };
 
-let money,
+let money = Number(0),
   income = "Фриланс",
   addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую"),
   deposit = confirm('Есть ли у вас депозит в банке?'),
@@ -14,31 +14,33 @@ let money,
 
 let start = function () {
   do {
-    money = prompt("Ваш месячный доход?");
+    money = +prompt("Ваш месячный доход?");
   } while (!isNumber(money));
 };
 
 start();
 
 let questionsExpenses = [],
-  questionsAmount = [];
+  questionsAmount = [],
+  expensesMonth;
 
 let showTypeOf = function (data) {
   console.log(typeof (data));
 };
 
-let getExpensesMonth = function () {
+let getExpensesMonth = function (numbersQuestions) {
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < numbersQuestions; i++) {
     questionsExpenses[i] = prompt("Введите обязательную статью расходов.");
     questionsAmount[i] = +prompt("Во сколько это обойдется?");
   }
 
-  return questionsAmount[0] + questionsAmount[1] + questionsAmount[2] + questionsAmount[3];
+  expensesMonth = questionsAmount[0] + questionsAmount[1];
+  return expensesMonth;
 };
 
 function getAccumulatedMonth() {
-  return money - getExpensesMonth;
+  return money - getExpensesMonth(2);
 }
 
 let accumulatedMonth = getAccumulatedMonth();
