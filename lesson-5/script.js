@@ -13,8 +13,6 @@ let money,
   budgetDay;
 
 let start = function () {
-  money = prompt("Ваш месячный доход?");
-
   do {
     money = prompt("Ваш месячный доход?");
   } while (!isNumber(money));
